@@ -24,4 +24,12 @@ describe('Go to Home Page', function() {
         done();
       });
   });
+  it('should return 500 status when visting /',function(done){
+    chai.request(server)
+    .get('/')
+    .end(function(err,res){
+      res.should.have.status(500);
+      done();
+    });
+  });
 });
